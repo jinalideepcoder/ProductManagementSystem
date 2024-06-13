@@ -106,7 +106,7 @@
                     <td><img src="{{ asset('/storage/images/' . $product->thumb_image) }}" style="height: 50px;width:50px;"
                             alt="" title=""></td>
                     <td class="">
-                        {{ $product->description }}
+                        {{ \Illuminate\Support\Str::limit($product->description, 25) }}
                     </td>
                     <td>
                         <div class="d-flex">
