@@ -1,0 +1,67 @@
+*:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+a {
+    color: #369;
+}
+
+.title-text {
+    margin: 2em 0;
+}
+
+.table > tbody > tr > td:nth-child(1) > i {
+    margin-right: 8px;
+    margin-top: 4px;
+}
+
+.table > tbody > tr > td:nth-child(2) {
+    text-align: center;
+}
+
+.entries {
+    margin-top: 0;
+}
+
+.pagination {
+    margin-top: 0 !important;
+    margin-left: 13rem;
+}
+
+.pagination > li > a {
+    background-color: white;
+    color: #4676d7;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover {
+    color: #036;
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+.pagination > .active > a {
+    color: white;
+    background-color: #4676d7 !important;
+    border: solid 1px #4676d7 !important;
+}
+
+.pagination > .active > a:hover {
+    background-color: #4676d7 !important;
+    border: solid 1px #4676d7;
+}
+
+.dataTables_filter {
+    margin-left: 11rem;
+}
+
+.gray {
+    color: #e7e7e7;
+}
+
+.black {
+    color: #555555;
+}
