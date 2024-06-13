@@ -56,21 +56,36 @@
 @section('footer')
     <script>
         $("#productForm").validate({
+
             rules: {
-                name: "required",
-                price: 'required'
+                name: ["required", 'max:255'],
+                price: ['required', ' digits: true', 'max:12'],
+                description: "max:255"
             },
+
 
             messages: {
                 name: {
                     required: "Please Enter Name",
+                    max: "max 255 character allows"
                 },
 
                 price: {
                     required: "Please Enter price",
+                    max: "max 12 digit allows",
+                    digit: "price should be in digits only"
                 },
+                description: {
+                    max: "max 255 character allows"
+                }
 
             }
+        });
+        $('#thumb_image').bind('change', function() {
+            var size = (this.files[0].size);
+            if (size > 2000000) {
+                alert('file size should be less than 2MB');
+            };
         });
     </script>
 @endsection

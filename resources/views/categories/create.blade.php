@@ -38,11 +38,12 @@
     <script>
         $("#categoryForm").validate({
             rules: {
-                name: "required",
+                name: ["required", 'max:255'],
             },
             messages: {
                 name: {
                     required: "Please Enter Name",
+                    max: "length should not more than 255 character",
                 },
 
             }

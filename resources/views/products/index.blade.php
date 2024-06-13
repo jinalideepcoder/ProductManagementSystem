@@ -101,7 +101,7 @@
             @foreach ($products as $product)
                 <tr>
                     <td> {{ $product->id }}</td>
-                    <td>{{ $product->name }}</td>
+                    <td> {{ \Illuminate\Support\Str::limit($product->name, 25) }}</td>
                     <td>{{ $product->price }}</td>
                     <td><img src="{{ asset('/storage/images/' . $product->thumb_image) }}" style="height: 50px;width:50px;"
                             alt="" title=""></td>

@@ -24,10 +24,11 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $attribute = request()->validate([
-            'name' => ['required'],
+            'name' => ['required', 'max:255'],
             'price' => ['required'],
             'category_id' => ['required'],
-
+            'description' => ['max:255'],
+            'thumb_image' => ['image|max:256'],
         ]);
 
         $path = storage_path('app/public/images');
@@ -66,10 +67,11 @@ class ProductController extends Controller
     public function update(Request $request, string $id)
     {
         $attribute = request()->validate([
-            'name' => ['required'],
-            'price' => ['required'],
+            'name' => ['required', 'max:255'],
+            'price' => ['required', 'max:12'],
             'category_id' => ['required'],
-
+            'description' => ['max:255'],
+            'thumb_image' => ['max:200000'],
         ]);
         $product =  Product::findOrFail($id);
         $existingImage = $product->thumb_image;

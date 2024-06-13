@@ -100,7 +100,7 @@
             @foreach ($categories as $category)
                 <tr>
                     <td> {{ $category->id }}</td>
-                    <td>{{ $category->name }}</td>
+                    <td> {{ \Illuminate\Support\Str::limit($category->name, 25) }}</td>
                     <td>
                         <div class="d-flex">
                             <a href="{{ url('categories/' . "$category->id" . '/edit ') }}"><button

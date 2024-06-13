@@ -66,19 +66,23 @@
     <script>
         $("#productUpdateForm").validate({
             rules: {
-                name: "required",
+                name: ["required", "max:255"],
                 price: 'required'
+                description: "max:255"
             },
 
             messages: {
                 name: {
                     required: "Please Enter Name",
+                    max: "max 255 characters allow"
                 },
 
                 price: {
                     required: "Please Enter price",
                 },
-
+                description: {
+                    max: "max 255 characters allow"
+                }
             }
         });
     </script>
