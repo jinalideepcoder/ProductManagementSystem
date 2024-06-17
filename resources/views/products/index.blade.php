@@ -23,7 +23,7 @@
         </div>
     @endif
 
-    <table id="productTable" class="table table-striped  table-bordered ">
+    <table id="productTable" class="table table-striped table-bordered  ">
         <thead>
             <th>Id</th>
             <th>Name</th>

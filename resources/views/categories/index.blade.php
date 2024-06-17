@@ -21,7 +21,7 @@
             <p>{!! \Session::get('success') !!}</p>
         </div>
     @endif
-    <table id="categoryTable" class="table table-striped text-center table-bordered">
+    <table id="categoryTable" class="table table-striped table-bordered ">
 
         <thead>
             <th>Id</th>
