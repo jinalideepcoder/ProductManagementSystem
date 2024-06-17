@@ -7,10 +7,27 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $category = Category::all();
-        return view('categories.index', ['categories' => $category]);
+
+        $categories = Category::all();
+
+        $categoryUpdated = $categories->map(function ($q) {
+            $q->name = \Illuminate\Support\Str::limit($q->name, 25);
+            $q->edit_button = '<a href="' . url('categories/' . $q->id . '/edit') . '"><button class="btn btn-primary">Edit</button></a>';
+            $q->delete_button = '<form action="' . route('categories.destroy', ['category' => $q->id]) . '" method="POST" style="display:inline;">
+            ' . csrf_field() . '
+            ' . method_field('DELETE') . '
+            <button type="submit" class="btn btn-danger">Delete</button>
+         </form>';
+
+            return $q;
+        });
+        if ($request->ajax()) {
+            return response()->json(['data' => $categories]);
+        }
+
+        return view('categories.index');
     }
 
     public function create()
