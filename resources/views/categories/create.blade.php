@@ -1,9 +1,7 @@
 @extends('layout.master')
-@section('header')
+@push('header')
     <title>category/create</title>
-@endsection
-@extends('layout.header')
-@extends('layout.sidebar')
+@endpush
 @section('content')
     <div class="card d-flex m-auto mt-5" style="width: 25rem;">
         <div class="card-body">
@@ -34,7 +32,7 @@
         </div>
     </div>
 @endsection
-@section('footer')
+@push('footer')
     <script>
         $("#categoryForm").validate({
             rules: {
@@ -49,4 +47,4 @@
             }
         });
     </script>
-@endsection
+@endpush

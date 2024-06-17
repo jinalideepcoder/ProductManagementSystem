@@ -1,7 +1,7 @@
 @extends('layout.master')
-@section('header')
+@push('header')
     <title>login</title>
-@endsection
+@endpush
 @section('content')
     <div class="card d-flex m-auto mt-5" style="width: 25rem;">
         <div class="card-body">
@@ -30,7 +30,7 @@
         </div>
     </div>
 @endsection
-@section('footer')
+@push('footer')
     <script>
         $("#loginForm").validate({
             rules: {
@@ -51,4 +51,4 @@
             }
         });
     </script>
-@endsection
+@endpush

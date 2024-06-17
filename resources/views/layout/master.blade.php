@@ -17,20 +17,29 @@
     <link rel="stylesheet" href="{{ asset('css/validation.css') }}">
 
 </head>
-@yield('header')
+
+@stack('header')
 
 <body>
+    @auth
+        <div class="bg-light text-end ">
+            <form action="{{ route('login.destroy') }}" method="post">
+                @csrf
+                <button type="submit" class="btn btn-primary m-2 ">{{ __('Logout') }}</button>
+            </form>
+        </div>
+        @include('layout.sidebar');
+    @endauth
     @yield('content')
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
 </script>
-<scrpt src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></scrpt>
 <scrpt src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></scrpt>
 <scrpt src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></scrpt>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 
-@yield('footer')
+@stack('footer')
 
 </html>
