@@ -26,8 +26,7 @@
         <thead>
             <th>Id</th>
             <th>Name</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th>Action</th>
         </thead>
         <tbody>
         </tbody>
@@ -47,11 +46,9 @@
                     data: "name"
                 },
                 {
-                    data: "edit_button"
+                    data: "action_button"
                 },
-                {
-                    data: "delete_button"
-                },
+
 
             ]
         })

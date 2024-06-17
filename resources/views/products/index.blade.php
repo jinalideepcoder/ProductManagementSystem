@@ -30,8 +30,7 @@
             <th>Price</th>
             <th>Image</th>
             <th>Description</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th>Action</th>
         </thead>
         <tbody>
         </tbody>
@@ -60,10 +59,7 @@
                     data: "description"
                 },
                 {
-                    data: "edit_button"
-                },
-                {
-                    data: "delete_button"
+                    data: "action_button"
                 },
 
             ]

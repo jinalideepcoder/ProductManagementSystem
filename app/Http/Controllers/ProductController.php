@@ -17,8 +17,7 @@ class ProductController extends Controller
             $q->name = \Illuminate\Support\Str::limit($q->name, 25);
             $q->description = \Illuminate\Support\Str::limit($q->description, 25);
             $q->thumb_image = '<img src="' . asset('storage/images/' . $q->thumb_image) . '" style="height: 50px;width:50px;" alt="" title="">';
-            $q->edit_button = '<a href="' . url('products/' . $q->id . '/edit') . '"><button class="btn btn-primary">Edit</button></a>';
-            $q->delete_button = '<form action="' . route('products.destroy', ['product' => $q->id]) . '" method="POST" style="display:inline;">
+            $q->action_button = '<a href="' . url('products/' . $q->id . '/edit') . '"><button class="btn btn-primary">Edit</button></a>' . ' ' . '<form action="' . route('products.destroy', ['product' => $q->id]) . '" method="POST" style="display:inline;">
             ' . csrf_field() . '
             ' . method_field('DELETE') . '
             <button type="submit" class="btn btn-danger">Delete</button>

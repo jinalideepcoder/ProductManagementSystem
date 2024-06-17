@@ -14,12 +14,16 @@ class CategoryController extends Controller
 
         $categoryUpdated = $categories->map(function ($q) {
             $q->name = \Illuminate\Support\Str::limit($q->name, 25);
-            $q->edit_button = '<a href="' . url('categories/' . $q->id . '/edit') . '"><button class="btn btn-primary">Edit</button></a>';
-            $q->delete_button = '<form action="' . route('categories.destroy', ['category' => $q->id]) . '" method="POST" style="display:inline;">
+            $q->action_button = '<a href="' . url('categories/' . $q->id . '/edit') . '"><button class="btn btn-primary">Edit</button></a>' . ' ' . '<form action="' . route('categories.destroy', ['category' => $q->id]) . '" method="POST" style="display:inline;">
             ' . csrf_field() . '
             ' . method_field('DELETE') . '
             <button type="submit" class="btn btn-danger">Delete</button>
          </form>';
+            //     $q->delete_button = '<form action="' . route('categories.destroy', ['category' => $q->id]) . '" method="POST" style="display:inline;">
+            //     ' . csrf_field() . '
+            //     ' . method_field('DELETE') . '
+            //     <button type="submit" class="btn btn-danger">Delete</button>
+            //  </form>';
 
             return $q;
         });
