@@ -23,22 +23,23 @@
                 @endif
 
                 <label class="w-100" for="">Name <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" value="" name="name" id="name">
+                <input type="text" class="form-control" value="{{ old('name') }}" name="name" id="name">
                 <label class="w-100" for="">Category<span class="text-danger">*</span></label>
                 <select name="category_id" id="category_id" class="form-control">
                     @foreach ($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}
+                        <option value="{{ $category->id }}" {{ 'category_id' === old('category_id') ? 'selected' : '' }}>
+                            {{ $category->name }}
                         </option>
                     @endforeach
                 </select>
                 <label class="w-100" for="">Description</label>
-                <textarea class="form-control" name="description" id="description" cols="30" rows="6"></textarea>
+                <textarea class="form-control" name="description" id="description" cols="30" rows="6">{{ old('description') }}</textarea>
                 <label class="w-100" for="">Price<span class="text-danger">*</span></label>
                 <div class="input-group mb-2 mr-sm-2">
                     <div class="input-group-prepend">
                         <div class="input-group-text">$</div>
                     </div>
-                    <input type="number" class="form-control" id="price" name="price">
+                    <input type="number" class="form-control" value="{{ old('price') }}" id="price" name="price">
                 </div>
                 <label id="price-error" class="error" for="price"></label>
                 <label class="w-100" for="">Image</label>
@@ -56,25 +57,35 @@
         $("#productForm").validate({
 
             rules: {
-                name: ["required", 'max:255'],
-                price: ['required', ' digits: true', 'max:12'],
-                description: "max:255"
+                name: {
+                    required: true,
+                    maxlength: 255,
+                },
+                price: {
+                    required: true,
+                    maxlength: 12,
+                    digits: true,
+                },
+                description: {
+                    required: false,
+                    maxlength: 255,
+                },
             },
 
 
             messages: {
                 name: {
                     required: "Please Enter Name",
-                    max: "max 255 character allows"
+                    maxlength: "max 255 character allows"
                 },
 
                 price: {
                     required: "Please Enter price",
-                    max: "max 12 digit allows",
+                    maxlength: "max 12 digit allows",
                     digit: "price should be in digits only"
                 },
                 description: {
-                    max: "max 255 character allows"
+                    maxlength: "max 255 character allows"
                 }
 
             }

@@ -17,7 +17,8 @@
                     </div>
                 @endif
                 <label class="w-100" for="">Email</label>
-                <input type="email" class="form-control" type="email" name="email" id="email">
+                <input type="email" class="form-control" type="email" value="{{ old('email') }}" name="email"
+                    id="email">
 
                 <label class="w-100" for="">Password</label>
                 <input type="password" class="form-control" type="password" name="password" id="password">

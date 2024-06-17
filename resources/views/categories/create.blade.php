@@ -24,7 +24,7 @@
 
                 <label class="w-100" for="">Name</label>
                 <input type="text" class="form-control" type="name" name="name" id="name">
-                <div class="text-end">
+                <div class="text-end" value={{ old('name') }}>
                     <button class="btn btn-primary mt-3" type="submit">Save</button>
                 </div>
             </form>
@@ -36,12 +36,15 @@
     <script>
         $("#categoryForm").validate({
             rules: {
-                name: ["required", 'max:255'],
+                name: {
+                    required: true,
+                    maxlength: 255,
+                },
             },
             messages: {
                 name: {
                     required: "Please Enter Name",
-                    max: "length should not more than 255 character",
+                    maxlength: "max 255 character allows",
                 },
 
             }
